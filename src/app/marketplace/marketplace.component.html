@@ -1,0 +1,11 @@
+<h2>List of our current inventory</h2>
+
+<div *ngFor="let car of cars" (click)="goToDetailPage(car)" class="panel panel-default">
+  <div class="panel-body">
+    <h4>Brand: <em>{{car.brand}}</em></h4><br>
+    <h4>Model: <em>{{car.model}}</em></h4><br>
+    <h4>Year: <em>{{car.year}}</em></h4><br>
+    <h4>Mileage: <em>{{car.mileage}}</em></h4><br>
+    <h4>Price: <em>${{car.price}}</em></h4><br>
+  </div>
+</div>
