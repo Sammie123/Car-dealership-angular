@@ -1,6 +1,7 @@
+
 <h2>List of our current inventory</h2>
 
-<div *ngFor="let car of cars" (click)="goToDetailPage(car)" class="panel panel-default">
+<div *ngFor="let car of cars | async" (click)="goToDetailPage(car)" class="panel panel-default">
   <div class="panel-body">
     <h4>Brand: <em>{{car.brand}}</em></h4><br>
     <h4>Model: <em>{{car.model}}</em></h4><br>

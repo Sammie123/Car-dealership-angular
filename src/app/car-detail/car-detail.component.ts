@@ -3,6 +3,7 @@ import { Car } from '../car.model';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { CarService } from '../car.service';
+import { FirebaseObjectObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-car-detail',
@@ -11,14 +12,14 @@ import { CarService } from '../car.service';
   providers: [CarService]
 })
 export class CarDetailComponent implements OnInit {
-  carId: number;
-  carToDisplay: Car;
+  carId: string;
+  carToDisplay;
 
   constructor(private route: ActivatedRoute, private location: Location, private carService: CarService) { }
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
-      this.carId = parseInt(urlParameters['id']);
+      this.carId = urlParameters['id'];
     });
     this.carToDisplay = this.carService.getCarById(this.carId);
   }

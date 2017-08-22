@@ -4,6 +4,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { AboutComponent }   from './about/about.component';
 import { MarketplaceComponent } from './marketplace/marketplace.component';
 import { CarDetailComponent } from './car-detail/car-detail.component';
+import { AdminComponent }   from './admin/admin.component';
 
 
 const appRoutes: Routes = [
@@ -25,6 +26,11 @@ const appRoutes: Routes = [
   {
     path: 'cars/:id',
     component: CarDetailComponent
+  },
+
+  {
+    path: 'admin',
+    component: AdminComponent
   }
 ];
 

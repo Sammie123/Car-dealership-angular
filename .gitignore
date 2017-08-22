@@ -43,3 +43,5 @@ Thumbs.
 
 /node_modules
 /bower_components
+
+/src/app/api-keys.ts 

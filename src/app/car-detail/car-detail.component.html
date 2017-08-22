@@ -1,3 +1,7 @@
-<p>
-<img src={{carToDisplay.image}}>
-</p>
+<!-- <p>
+<img src={{(carToDisplay | async).image}}>
+</p> -->
+
+<h3>{{(carToDisplay | async).brand}}</h3>
+
+{{carToDisplay.image}}

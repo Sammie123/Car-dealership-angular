@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Add New Car to Inventory</h3>
+  </div>
+  <div class="panel-body">
+    <div>
+      <label>Car Brand:</label>
+      <input #newBrand>
+    </div>
+
+    <div>
+      <label>Car Model:</label>
+      <input #newModel>
+    </div>
+
+    <div>
+      <label>Car Year:</label>
+      <input #newYear>
+    </div>
+
+    <div>
+      <label>Car Mileage:</label>
+      <input #newMileage>
+    </div>
+
+    <div>
+      <label>Car Price:</label>
+      <input #newPrice>
+    </div>
+
+    <div>
+      <label>Car Image:</label>
+      <input #newImage>
+    </div>
+    <button (click)="submitForm(newBrand.value, newModel.value, newYear.value, newMileage.value, newPrice.value, newImage.value); newBrand.value='';newModel.value= '';newYear.value=''; newMileage.value=''; newPrice.value= ''; newImage.value=''">Add to Inventory</button>
+  </div>
+</div>

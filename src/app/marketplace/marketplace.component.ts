@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Car } from '../car.model';
 import { Router } from '@angular/router';
 import { CarService } from '../car.service';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-marketplace',
@@ -11,7 +12,7 @@ import { CarService } from '../car.service';
 })
 
 export class MarketplaceComponent implements OnInit {
-  cars: Car[];
+  cars: FirebaseListObservable<any[]>;
 
   constructor(private router: Router, private carService: CarService) { }
 
@@ -19,7 +20,7 @@ export class MarketplaceComponent implements OnInit {
     this.cars = this.carService.getCars();
   }
 
-  goToDetailPage(clickedCar: Car) {
-    this.router.navigate(['cars', clickedCar.id]);
+  goToDetailPage(clickedCar) {
+    this.router.navigate(['cars', clickedCar.$key]);
   };
 }

@@ -1,21 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Car } from './car.model';
 import { CARS } from './mock-albums';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Injectable()
 export class CarService {
+  cars: FirebaseListObservable<any[]>;
 
-  constructor() { }
-
-  getCars() {
-    return CARS;
+  constructor(private database: AngularFireDatabase) {
+    this.cars = database.list('cars');
   }
 
-  getCarById(carId: number) {
-    for (var i = 0; i <= CARS.length - 1; i++) {
-      if (CARS[i].id === carId) {
-        return CARS[i];
-      }
-    }
+  getCars() {
+    return this.cars;
+  }
+
+  addCar(newCar: Car) {
+    this.cars.push(newCar);
+  }
+
+  getCarById(carId: string) {
+    return this.database.object('cars/' + carId)
   }
 }
